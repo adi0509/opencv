@@ -1,0 +1,8 @@
+//to create a vector file
+opencv_createsamples -info cars.info -num 575 -w 64 -h 64 -vec cars.vec
+
+//to view images in vec file
+opencv_createsamples -vec cars.vec -w 64 -h 64
+
+//to make cascade.xml file
+opencv_traincascade -data data -vec cars.vec -bg bg.txt -numPos 575 -numNeg 600 -numStages 2 -w 64 -h 64 -featureType LBP
